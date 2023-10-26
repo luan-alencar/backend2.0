@@ -5,7 +5,6 @@ import com.unifacisa.usuarioservice.repository.ProdutoRepository;
 import com.unifacisa.usuarioservice.utils.CrudUtils;
 import com.unifacisa.usuarioservice.utils.exceptions.CustomServerErrorException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -14,29 +13,28 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
+
+import static com.unifacisa.usuarioservice.utils.ConstantsUtils.API_URL_PRODUTOS;
 
 @Service
 @RequiredArgsConstructor
 public class ProdutoService implements CrudUtils<Produto> {
-
 
     private final WebClient webClient;
 
     private ProdutoRepository produtoRepository;
 
     @Override
-    public ArrayList<Produto> listar() {
+    public List<Produto> listar() {
         Flux<Produto> produtosExternoFlux = webClient.get()
-                .uri("/api/produtos")
+                .uri(API_URL_PRODUTOS)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .onStatus(HttpStatusCode::is5xxServerError, this::handler5xxServerError)
                 .bodyToFlux(Produto.class);
 
-        ArrayList<Produto> todosProdutos = (ArrayList<Produto>) produtosExternoFlux.collectList().block();
+        List<Produto> todosProdutos = produtosExternoFlux.collectList().block();
         return todosProdutos;
     }
 

@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static com.unifacisa.usuarioservice.utils.ConstantsUtils.API_URL_PRODUTOS;
+
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/produtos")
+@RequestMapping(API_URL_PRODUTOS)
 public class ProdutoResource implements CrudResourceUtils<Produto> {
 
     private final ProdutoService produtoService;

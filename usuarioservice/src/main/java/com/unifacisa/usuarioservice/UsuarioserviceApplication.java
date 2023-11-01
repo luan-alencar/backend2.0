@@ -12,7 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @SpringBootApplication
 public class UsuarioserviceApplication {
 
-    @Value("${com.unifacisa.shoppingcartservice-url}")
+    @Value("${com.unifacisa.usuarioservice-url}")
     private String apiUrl;
 
     @Bean

@@ -3,6 +3,7 @@ package com.unifacisa.shoppingcartservice.resource;
 
 import com.unifacisa.shoppingcartservice.domain.Produto;
 import com.unifacisa.shoppingcartservice.service.ProdutoService;
+import com.unifacisa.shoppingcartservice.utils.ConstantsUtils;
 import com.unifacisa.shoppingcartservice.utils.CrudResourceUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

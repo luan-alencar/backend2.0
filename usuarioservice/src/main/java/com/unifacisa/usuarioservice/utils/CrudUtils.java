@@ -11,7 +11,9 @@ public interface CrudUtils<E, D> {
 
     D salvar(E e);
 
-    D buscar(Long e);
+    D buscar(Long id);
 
     D editar(E e);
+
+    void deletar(Long id);
 }

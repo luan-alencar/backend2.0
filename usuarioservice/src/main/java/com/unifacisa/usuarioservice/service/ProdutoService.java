@@ -32,7 +32,8 @@ public class ProdutoService implements CrudUtils<Produto, ProdutoDTO> {
 
     @Override
     public ProdutoDTO salvar(Produto produto) {
-        return ProdutoMapper.INSTANTE.toDto(produtoRepository.save(produto));
+        Produto novoProduto = produtoRepository.save(produto);
+        return ProdutoMapper.INSTANTE.toDto(novoProduto);
     }
 
     @Override
@@ -44,6 +45,12 @@ public class ProdutoService implements CrudUtils<Produto, ProdutoDTO> {
     public ProdutoDTO editar(Produto produto) {
         Produto novoProduto = ProdutoMapper.INSTANTE.toEntity(this.buscar(produto.getId()));
         return this.salvar(novoProduto);
+    }
+
+    @Override
+    public void deletar(Long id) {
+        Produto produtoDeletar = ProdutoMapper.INSTANTE.toEntity(this.buscar(id));
+        this.produtoRepository.delete(produtoDeletar);
     }
 
     private Mono<? extends Throwable> handler5xxServerError(ClientResponse clientResponse) {

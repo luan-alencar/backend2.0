@@ -8,9 +8,11 @@ public interface CrudUtils<E> {
 
     List<E> listar();
 
-    Mono<E> salvar(E e);
+    E salvar(E e);
 
-    E buscar(Long e);
+    Mono<E> buscar(Long e);
 
-    E editar(E e);
+    Mono<E> editar(E e);
+
+    Mono<Void> deletar(Long id);
 }

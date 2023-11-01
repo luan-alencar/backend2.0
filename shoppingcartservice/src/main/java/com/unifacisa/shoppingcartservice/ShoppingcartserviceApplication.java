@@ -1,5 +1,6 @@
 package com.unifacisa.shoppingcartservice;
 
+import com.unifacisa.shoppingcartservice.service.exceptions.GlobalExceptionHandler;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

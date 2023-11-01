@@ -5,6 +5,7 @@ import com.unifacisa.usuarioservice.service.ProdutoService;
 import com.unifacisa.usuarioservice.service.dto.ProdutoDTO;
 import com.unifacisa.usuarioservice.utils.CrudResourceUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.PackagePrivate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,13 +34,22 @@ public class ProdutoResource implements CrudResourceUtils<Produto, ProdutoDTO> {
     }
 
     @Override
-    public ResponseEntity<ProdutoDTO> buscar(Long e) {
-        return ResponseEntity.ok(produtoService.buscar(e));
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoDTO> buscar(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(produtoService.buscar(id));
     }
 
     @Override
-    public ResponseEntity<ProdutoDTO> editar(Produto produto) {
+    @PatchMapping
+    public ResponseEntity<ProdutoDTO> editar(@RequestBody Produto produto) {
         return ResponseEntity.ok(produtoService.editar(produto));
+    }
+
+    @Override
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable("id") Long id) {
+        produtoService.deletar(id);
+        return ResponseEntity.ok().build();
     }
 
 }

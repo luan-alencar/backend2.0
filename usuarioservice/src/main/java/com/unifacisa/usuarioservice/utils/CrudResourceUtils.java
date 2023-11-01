@@ -11,7 +11,9 @@ public interface CrudResourceUtils<E, D> {
 
     ResponseEntity<D> salvar(E e);
 
-    ResponseEntity<D> buscar(Long e);
+    ResponseEntity<D> buscar(Long id);
 
     ResponseEntity<D> editar(E e);
+
+    ResponseEntity<Void> deletar(Long id);
 }

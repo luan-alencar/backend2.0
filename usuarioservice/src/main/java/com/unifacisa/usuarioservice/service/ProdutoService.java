@@ -32,7 +32,7 @@ public class ProdutoService implements CrudUtils<Produto, ProdutoDTO> {
 
     @Override
     public ProdutoDTO salvar(Produto produto) {
-        Produto novoProduto = produtoRepository.save(produto);
+        Produto novoProduto = produtoRepository.saveAndFlush(produto);
         return ProdutoMapper.INSTANTE.toDto(novoProduto);
     }
 

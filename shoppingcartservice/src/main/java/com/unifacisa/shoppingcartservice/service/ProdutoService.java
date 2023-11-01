@@ -49,28 +49,32 @@ public class ProdutoService implements CrudUtils<Produto> {
     }
 
     @Override
-    public Mono<Produto> buscar(Long e) {
-        return webClient.get()
-                .uri(API_URL_PRODUTOS_ID, e)
+    public Produto buscar(Long e) {
+        Mono<Produto> produtoMono = webClient.get()
+                .uri(API_URL_PRODUTOS_ID)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .bodyToMono(Produto.class)
                 .onErrorResume(this::handleError);
+        Produto produtoEcontrado = produtoMono.block();
+        return produtoEcontrado;
     }
 
     @Override
-    public Mono<Produto> editar(Produto produto) {
-        return webClient.patch()
+    public Produto editar(Produto produto) {
+        Mono<Produto> produtoMono = webClient.patch()
                 .uri(API_URL_PRODUTOS)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve().
                 bodyToMono(Produto.class)
                 .onErrorResume(this::handleError);
+        Produto novoProduto = produtoMono.block();
+        return novoProduto;
     }
 
     @Override
-    public Mono<Void> deletar(Long id) {
-        return webClient.delete()
+    public void deletar(Long id) {
+        webClient.delete()
                 .uri(API_URL_PRODUTOS_ID)
                 .retrieve()
                 .bodyToMono(Void.class)

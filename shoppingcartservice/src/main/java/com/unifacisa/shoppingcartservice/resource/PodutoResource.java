@@ -34,8 +34,9 @@ public class PodutoResource implements CrudResourceUtils<Produto> {
     }
 
     @Override
-    public ResponseEntity<Produto> buscar(Long e) {
-        return null;
+    @GetMapping("/{id}")
+    public ResponseEntity<Produto> buscar(@PathVariable("id") Long id) {
+        return ResponseEntity.ok().body(produtoService.buscar(id));
     }
 
     @Override

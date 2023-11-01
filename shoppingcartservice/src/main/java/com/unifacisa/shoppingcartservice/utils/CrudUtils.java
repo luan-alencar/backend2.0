@@ -10,9 +10,9 @@ public interface CrudUtils<E> {
 
     E salvar(E e);
 
-    Mono<E> buscar(Long e);
+    E buscar(Long e);
 
-    Mono<E> editar(E e);
+    E editar(E e);
 
-    Mono<Void> deletar(Long id);
+    void deletar(Long id);
 }

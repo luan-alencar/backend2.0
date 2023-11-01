@@ -6,6 +6,7 @@ import com.unifacisa.shoppingcartservice.service.ProdutoService;
 import com.unifacisa.shoppingcartservice.utils.CrudResourceUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,8 +24,9 @@ public class PodutoResource implements CrudResourceUtils<Produto> {
     private final ProdutoService produtoService;
 
     @Override
+    @GetMapping
     public ResponseEntity<List<Produto>> listar() {
-        return null;
+        return ResponseEntity.ok(produtoService.listar());
     }
 
     @Override

@@ -23,7 +23,7 @@ public class ProdutoService implements CrudUtils<Produto> {
 
     private final WebClient webClient;
 
-    private ProdutoRepository produtoRepository;
+    private final ProdutoRepository produtoRepository;
 
     @Override
     public List<Produto> listar() {

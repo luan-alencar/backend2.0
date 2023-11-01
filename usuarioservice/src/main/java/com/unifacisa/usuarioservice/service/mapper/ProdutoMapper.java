@@ -9,10 +9,10 @@ import org.mapstruct.Mapper;
 public interface ProdutoMapper extends EntityMapperUtils<ProdutoDTO, Produto> {
 
     @Override
-    Produto toEntity(ProdutoDTO dto);
+    ProdutoDTO toDto(Produto entity);
 
     @Override
-    ProdutoDTO toDto(Produto entity);
+    Produto toEntity(ProdutoDTO dto);
 
 }
 

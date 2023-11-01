@@ -1,14 +1,9 @@
 package com.unifacisa.usuarioservice.utils.mapper;
 
-import java.util.List;
+public interface EntityMapperUtils<D, E> {
 
-public interface EntityMapperUtils<E, D> {
+    D toDto(E entity);
 
     E toEntity(D dto);
 
-    D toDTO(E entity);
-
-    List<D> toDTOList(List<E> entityList);
-
-    List<E> toEntityList(List<D> dtoList);
 }

@@ -1,6 +1,5 @@
-package com.unifacisa.usuarioservice.utils;
+package com.unifacisa.shoppingcartservice.utils;
 
-import com.unifacisa.usuarioservice.domain.Produto;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -9,7 +8,7 @@ public interface CrudUtils<E> {
 
     List<E> listar();
 
-    E salvar(E e);
+    Mono<E> salvar(E e);
 
     E buscar(Long e);
 

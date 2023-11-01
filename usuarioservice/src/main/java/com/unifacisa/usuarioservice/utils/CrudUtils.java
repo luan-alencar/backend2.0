@@ -5,13 +5,13 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-public interface CrudUtils<E> {
+public interface CrudUtils<E, D> {
 
-    List<E> listar();
+    List<D> listar();
 
-    E salvar(E e);
+    D salvar(E e);
 
-    E buscar(Long e);
+    D buscar(Long e);
 
-    E editar(E e);
+    D editar(E e);
 }

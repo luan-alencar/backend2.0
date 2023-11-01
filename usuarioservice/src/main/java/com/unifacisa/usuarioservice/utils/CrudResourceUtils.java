@@ -4,14 +4,14 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface CrudResourceUtils<E> {
+public interface CrudResourceUtils<E, D> {
 
 
-    ResponseEntity<List<E>> listar();
+    ResponseEntity<List<D>> listar();
 
-    ResponseEntity<E> salvar(E e);
+    ResponseEntity<D> salvar(E e);
 
-    ResponseEntity<E> buscar(Long e);
+    ResponseEntity<D> buscar(Long e);
 
-    ResponseEntity<E> editar(E e);
+    ResponseEntity<D> editar(E e);
 }

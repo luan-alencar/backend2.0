@@ -2,6 +2,7 @@ package com.unifacisa.usuarioservice.resource;
 
 import com.unifacisa.usuarioservice.domain.Produto;
 import com.unifacisa.usuarioservice.service.ProdutoService;
+import com.unifacisa.usuarioservice.service.dto.ProdutoDTO;
 import com.unifacisa.usuarioservice.utils.CrudResourceUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,29 +18,29 @@ import static com.unifacisa.usuarioservice.utils.ConstantsUtils.API_URL_PRODUTOS
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(API_URL_PRODUTOS)
-public class ProdutoResource implements CrudResourceUtils<Produto> {
+public class ProdutoResource implements CrudResourceUtils<Produto, ProdutoDTO> {
 
     private final ProdutoService produtoService;
 
     @Override
     @GetMapping
-    public ResponseEntity<List<Produto>> listar() {
+    public ResponseEntity<List<ProdutoDTO>> listar() {
         return ResponseEntity.ok(produtoService.listar());
     }
 
     @Override
-    @PostMapping
-    public ResponseEntity<Produto> salvar(Produto produto) {
-        return ResponseEntity.ok().body(produtoService.salvar(produto));
-    }
-
-    @Override
-    public ResponseEntity<Produto> buscar(Long e) {
+    public ResponseEntity<ProdutoDTO> salvar(Produto produto) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Produto> editar(Produto produto) {
+    public ResponseEntity<ProdutoDTO> buscar(Long e) {
         return null;
     }
+
+    @Override
+    public ResponseEntity<ProdutoDTO> editar(Produto produto) {
+        return null;
+    }
+
 }

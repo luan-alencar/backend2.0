@@ -18,5 +18,5 @@ public interface CrudResourceUtils<E> {
 
     ResponseEntity<E> editar(E e);
 
-    ResponseEntity<Void> deletar(E e);
+    ResponseEntity<Void> deletar(Long id);
 }

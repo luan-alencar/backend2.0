@@ -40,12 +40,16 @@ public class PodutoResource implements CrudResourceUtils<Produto> {
     }
 
     @Override
-    public ResponseEntity<Produto> editar(Produto produto) {
-        return null;
+    @PutMapping("/editar")
+    public ResponseEntity<Produto> editar(@RequestBody Produto produto) {
+        Produto entidade = produtoService.salvar(produto);
+        return ResponseEntity.ok(entidade);
     }
 
     @Override
-    public ResponseEntity<Void> deletar(Produto produto) {
-        return null;
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable("id") Long id) {
+        produtoService.deletar(id);
+        return ResponseEntity.ok().build();
     }
 }

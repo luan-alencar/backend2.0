@@ -32,25 +32,28 @@ public class ProdutoService implements CrudUtils<Produto, ProdutoDTO> {
 
     @Override
     public ProdutoDTO salvar(Produto produto) {
-        Produto novoProduto = produtoRepository.saveAndFlush(produto);
+        Produto novoProduto = produtoRepository.save(produto);
         return ProdutoMapper.INSTANTE.toDto(novoProduto);
     }
 
     @Override
-    public ProdutoDTO buscar(Long e) {
-        return ProdutoMapper.INSTANTE.toDto(produtoRepository.getById(e));
+    public ProdutoDTO buscar(Long id) {
+        return ProdutoMapper.INSTANTE.toDto(produtoRepository.getById(id));
     }
 
     @Override
     public ProdutoDTO editar(Produto produto) {
-        Produto novoProduto = ProdutoMapper.INSTANTE.toEntity(this.buscar(produto.getId()));
-        return this.salvar(novoProduto);
+        if (produtoRepository.existsById(produto.getId())) {
+            produto.setId(produto.getId());
+            return this.salvar(produto);
+        } else {
+            throw new CustomServerErrorException("Produto não encontrado para o ID: " + produto.getId());
+        }
     }
 
     @Override
     public void deletar(Long id) {
-        Produto produtoDeletar = ProdutoMapper.INSTANTE.toEntity(this.buscar(id));
-        this.produtoRepository.delete(produtoDeletar);
+        this.produtoRepository.deleteById(id);
     }
 
     private Mono<? extends Throwable> handler5xxServerError(ClientResponse clientResponse) {

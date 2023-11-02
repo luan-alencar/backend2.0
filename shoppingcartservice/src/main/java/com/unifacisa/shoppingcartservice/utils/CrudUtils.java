@@ -10,7 +10,7 @@ public interface CrudUtils<E> {
 
     E salvar(E e);
 
-    E buscar(Long e);
+    E buscar(Long id);
 
     E editar(E e);
 

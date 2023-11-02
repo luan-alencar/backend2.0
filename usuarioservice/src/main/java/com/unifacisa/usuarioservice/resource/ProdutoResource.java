@@ -5,7 +5,6 @@ import com.unifacisa.usuarioservice.service.ProdutoService;
 import com.unifacisa.usuarioservice.service.dto.ProdutoDTO;
 import com.unifacisa.usuarioservice.utils.CrudResourceUtils;
 import lombok.RequiredArgsConstructor;
-import lombok.experimental.PackagePrivate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +39,10 @@ public class ProdutoResource implements CrudResourceUtils<Produto, ProdutoDTO> {
     }
 
     @Override
-    @PatchMapping
+    @PutMapping("/editar")
     public ResponseEntity<ProdutoDTO> editar(@RequestBody Produto produto) {
-        return ResponseEntity.ok(produtoService.editar(produto));
+        ProdutoDTO produtoEditado = produtoService.salvar(produto);
+        return ResponseEntity.ok().body(produtoEditado);
     }
 
     @Override

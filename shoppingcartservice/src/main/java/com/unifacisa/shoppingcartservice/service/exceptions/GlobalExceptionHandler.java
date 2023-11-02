@@ -2,6 +2,7 @@ package com.unifacisa.shoppingcartservice.service.exceptions;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 @Order
 @Component
-public class GlobalExceptionHandler extends ResponseStatusException{
+public class GlobalExceptionHandler extends ResponseStatusException {
 
 
     public GlobalExceptionHandler() {
@@ -25,7 +26,7 @@ public class GlobalExceptionHandler extends ResponseStatusException{
         super(status);
     }
 
-    public GlobalExceptionHandler(HttpStatus status, String reason) {
+    public GlobalExceptionHandler(HttpStatusCode status, String reason) {
         super(status, reason);
     }
 
@@ -35,17 +36,6 @@ public class GlobalExceptionHandler extends ResponseStatusException{
 
     public GlobalExceptionHandler(int rawStatusCode, String reason, Throwable cause) {
         super(rawStatusCode, reason, cause);
-    }
-
-    @ExceptionHandler(ResponseStatusException.class)
-    public ResponseEntity<ErrorResponse> handleResponseStatusException(ResponseStatusException ex, WebRequest request) {
-        HttpStatus status = ex.getStatus();
-        String reason = ex.getReason();
-        String message = ex.getMessage();
-
-        ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now().toString(), status.value(), reason, message);
-
-        return new ResponseEntity<>(errorResponse, status);
     }
 
     @ExceptionHandler(Exception.class)
@@ -61,7 +51,7 @@ public class GlobalExceptionHandler extends ResponseStatusException{
 
     @ExceptionHandler(GlobalExceptionHandler.class)
     public ResponseEntity<ErrorResponse> handleGlobalExceptionHandler(GlobalExceptionHandler ex, WebRequest request) {
-        HttpStatus status = ex.getStatus();
+        HttpStatusCode status = ex.getStatusCode();
         String reason = ex.getReason();
         String message = ex.getMessage();
 

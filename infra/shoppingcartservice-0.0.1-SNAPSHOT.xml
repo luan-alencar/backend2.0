@@ -3,12 +3,12 @@
     <name>shoppingcartservice-0.0.1-SNAPSHOT</name>
     <description>shoppingcartservice-0.0.1-SNAPSHOT - Projeto Disciplina TAP</description>
     <executable>java</executable>
-    <arguments>-jar shoppingcartservice-0.0.1-SNAPSHOT.jar</arguments>
+    <arguments> -jar shoppingcartservice-0.0.1-SNAPSHOT.jar</arguments>
 
     <!-- Configuração para serviço agendado -->
-    <onfailure action="restart" delay="10 sec"/>
-    <onfailure action="restart" delay="20 sec"/>
-    <onfailure action="none"/>
+    <!-- <onfailure action="restart" delay="10 sec"/>
+      <onfailure action="restart" delay="20 sec"/>
+    <onfailure action="none"/> -->
 
     <!-- Configuração do log -->
     <log mode="roll">

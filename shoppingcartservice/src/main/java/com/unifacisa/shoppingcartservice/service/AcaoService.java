@@ -4,6 +4,12 @@ import com.unifacisa.shoppingcartservice.domain.Acao;
 import com.unifacisa.shoppingcartservice.service.exceptions.GlobalExceptionHandler;
 import com.unifacisa.shoppingcartservice.utils.CrudUtils;
 import lombok.RequiredArgsConstructor;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -12,6 +18,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -87,6 +94,33 @@ public class AcaoService implements CrudUtils<Acao> {
         return this.listar().stream()
                 .filter(acao -> acao.getValor() <= accountBalance)
                 .collect(Collectors.toList());
+    }
+
+    private static List<Acao> obterListaDeAcoes() throws Exception {
+        String bovespaUrl = "https://opcoes.net.br/opcoes2/bovespa";
+        Document bovespaDocument = Jsoup.connect(bovespaUrl).get();
+
+        Element selectElement = bovespaDocument.select("select[name=IdAcao]").first();
+
+        if (selectElement != null) {
+            Elements options = selectElement.select("option");
+            List<Acao> acoes = new ArrayList<>();
+
+            for (Element option : options) {
+                String acaoNome = option.val(); // Nome da ação
+
+                // Crie um objeto Acao e defina os atributos apropriados
+                Acao acao = new Acao();
+                acao.setNome(acaoNome);
+                // acao.setValor();
+
+                acoes.add(acao);
+            }
+            return acoes;
+        } else {
+            System.out.println("Elemento <select> com name='IdAcao' não encontrado.");
+            return Collections.emptyList(); // Ou retorne null, se preferir
+        }
     }
 
     private Mono<? extends Acao> handleError(Throwable error) {

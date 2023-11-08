@@ -1,85 +1,35 @@
-2023-11-06 23:01:18,135 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:01:22,162 FATAL - A operação foi cancelada pelo usuário
-2023-11-06 23:01:55,500 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:01:57,943 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:01:58,305 INFO  - Installing the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:01:58,308 FATAL - Unhandled exception
-System.Exception: Installation failure: Service with id 'shoppingcartservice-0.0.1-SNAPSHOT' already exists
-   em winsw.WrapperService.<Run>g__Install|33_0(<>c__DisplayClass33_0& )
-   em winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
-   em winsw.WrapperService.Main(String[] args)
-2023-11-06 23:02:03,767 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:02:05,467 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:02:06,055 INFO  - Installing the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:02:06,060 FATAL - Unhandled exception
-System.Exception: Installation failure: Service with id 'shoppingcartservice-0.0.1-SNAPSHOT' already exists
-   em winsw.WrapperService.<Run>g__Install|33_0(<>c__DisplayClass33_0& )
-   em winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
-   em winsw.WrapperService.Main(String[] args)
-2023-11-06 23:02:28,155 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:02:30,159 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:02:30,703 INFO  - Uninstalling the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:02:30,730 DEBUG - Completed. Exit code is 0
-2023-11-06 23:02:34,713 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:02:37,062 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:02:37,500 INFO  - Installing the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:02:37,534 DEBUG - Completed. Exit code is 0
-2023-11-06 23:02:49,291 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:02:51,357 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:02:51,773 INFO  - Starting the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:02:51,940 DEBUG - Starting WinSW in the service mode
-2023-11-06 23:02:51,991 DEBUG - Completed. Exit code is 0
-2023-11-06 23:02:52,011 INFO  - Starting java  -jar shoppingcartservice-0.0.1-SNAPSHOT.jar
-2023-11-06 23:02:52,034 DEBUG - Completed. Exit code is 0
-2023-11-06 23:02:59,238 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:02:59,695 DEBUG - Completed. Exit code is 0
-2023-11-06 23:04:27,119 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:04:27,583 DEBUG - User requested the status of the process with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:04:27,585 DEBUG - Completed. Exit code is 0
-2023-11-06 23:04:33,599 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:04:35,647 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:04:36,107 INFO  - Starting the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:04:36,259 DEBUG - Starting WinSW in the service mode
-2023-11-06 23:04:36,286 DEBUG - Completed. Exit code is 0
-2023-11-06 23:04:36,295 INFO  - Starting java  -jar shoppingcartservice-0.0.1-SNAPSHOT.jar
-2023-11-06 23:04:36,310 DEBUG - Completed. Exit code is 0
-2023-11-06 23:04:38,644 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:04:39,079 DEBUG - User requested the status of the process with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:04:39,083 DEBUG - Completed. Exit code is 0
-2023-11-06 23:04:45,907 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:04:47,539 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:04:47,929 INFO  - Starting java  -jar shoppingcartservice-0.0.1-SNAPSHOT.jar
-2023-11-06 23:04:47,941 FATAL - The configuration file cound not be loaded. Undefined logging mode: 
-System.IO.InvalidDataException: Undefined logging mode: 
-   em winsw.ServiceDescriptor.get_LogHandler()
-   em winsw.WrapperService.CreateExecutableLogHandler()
-   em winsw.WrapperService.OnStart(String[] args)
-   em winsw.WrapperService.<Run>g__Test|33_8(<>c__DisplayClass33_0& )
-   em winsw.WrapperService.Run(String[] _args, ServiceDescriptor descriptor)
-   em winsw.WrapperService.Main(String[] args)
-2023-11-06 23:11:18,270 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:11:18,659 DEBUG - Completed. Exit code is 0
-2023-11-06 23:11:31,924 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:11:34,579 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:11:35,015 INFO  - Restarting the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:11:35,239 DEBUG - Starting WinSW in the service mode
-2023-11-06 23:11:35,274 DEBUG - Completed. Exit code is 0
-2023-11-06 23:11:35,306 INFO  - Starting java  -jar shoppingcartservice-0.0.1-SNAPSHOT.jar
-2023-11-06 23:11:35,349 DEBUG - Completed. Exit code is 0
-2023-11-06 23:11:43,970 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:11:44,336 DEBUG - User requested the status of the process with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:11:44,340 DEBUG - Completed. Exit code is 0
-2023-11-06 23:11:51,295 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:11:53,138 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:11:53,491 INFO  - Starting the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:11:53,642 DEBUG - Starting WinSW in the service mode
-2023-11-06 23:11:53,670 DEBUG - Completed. Exit code is 0
-2023-11-06 23:11:53,700 DEBUG - Completed. Exit code is 0
-2023-11-06 23:11:56,264 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:11:56,680 DEBUG - User requested the status of the process with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:11:56,684 DEBUG - Completed. Exit code is 0
-2023-11-06 23:16:39,765 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:16:42,131 DEBUG - Starting WinSW in the CLI mode
-2023-11-06 23:16:42,760 INFO  - Stopping the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
-2023-11-06 23:16:42,796 INFO  - The service with ID 'shoppingcartservice-0.0.1-SNAPSHOT' is not running
-2023-11-06 23:16:42,796 DEBUG - Completed. Exit code is 0
+2023-11-07 10:07:36,216 DEBUG - Starting WinSW in the CLI mode
+2023-11-07 10:07:38,285 DEBUG - Starting WinSW in the CLI mode
+2023-11-07 10:07:38,659 INFO  - Restarting the service with id 'shoppingcartservice-0.0.1-SNAPSHOT'
+2023-11-07 10:07:38,812 DEBUG - Starting WinSW in the service mode
+2023-11-07 10:07:38,840 DEBUG - Completed. Exit code is 0
+2023-11-07 10:07:38,893 INFO  - Started process 9368
+2023-11-07 10:07:38,899 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.RollingLogAppender
+2023-11-07 17:49:05,539 DEBUG - Starting WinSW in the service mode
+2023-11-07 17:49:05,703 INFO  - Starting java  -jar shoppingcartservice-0.0.1-SNAPSHOT.jar
+2023-11-07 17:49:05,772 INFO  - Started process 16944
+2023-11-07 17:49:05,788 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.RollingLogAppender
+2023-11-08 17:57:38,487 DEBUG - Starting WinSW in the service mode
+2023-11-08 17:57:39,134 INFO  - Starting java  -jar shoppingcartservice-0.0.1-SNAPSHOT.jar
+2023-11-08 17:57:39,220 INFO  - Started process 8780
+2023-11-08 17:57:39,230 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.RollingLogAppender
+2023-11-08 17:58:00,765 INFO  - Stopping shoppingcartservice-0.0.1-SNAPSHOT
+2023-11-08 17:58:00,765 DEBUG - ProcessKill 8780
+2023-11-08 17:58:01,037 WARN  - Failed to locate children of the process with PID=8780. Child processes won't be terminated
+System.Runtime.InteropServices.COMException (0x80040154): Classe não registrada
+
+   em System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   em System.Management.ManagementScope.InitializeGuts(Object o)
+   em System.Management.ManagementScope.Initialize()
+   em System.Management.ManagementObjectSearcher.Initialize()
+   em System.Management.ManagementObjectSearcher.Get()
+   em winsw.Util.ProcessHelper.GetChildPids(Int32 pid)
+2023-11-08 17:58:01,115 INFO  - Stopping process 8780
+2023-11-08 17:58:01,119 INFO  - Send SIGINT 8780
+2023-11-08 17:58:01,243 INFO  - SIGINT to 8780 successful
+2023-11-08 17:58:01,248 INFO  - Finished shoppingcartservice-0.0.1-SNAPSHOT
+2023-11-08 17:58:01,308 DEBUG - Completed. Exit code is 0
+2023-11-08 18:11:04,757 DEBUG - Starting WinSW in the service mode
+2023-11-08 18:11:05,645 INFO  - Starting java  -jar shoppingcartservice-0.0.1-SNAPSHOT.jar
+2023-11-08 18:11:05,747 INFO  - Started process 9120
+2023-11-08 18:11:05,756 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.RollingLogAppender

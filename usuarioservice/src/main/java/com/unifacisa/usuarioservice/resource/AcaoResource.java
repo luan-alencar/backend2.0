@@ -5,6 +5,8 @@ import com.unifacisa.usuarioservice.service.AcaoService;
 import com.unifacisa.usuarioservice.service.dto.AcaoDTO;
 import com.unifacisa.usuarioservice.utils.CrudResourceUtils;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +21,8 @@ import static com.unifacisa.usuarioservice.utils.ConstantsUtils.API_URL_PRODUTOS
 @RequestMapping(API_URL_ACOES)
 public class AcaoResource implements CrudResourceUtils<Acao, AcaoDTO> {
 
-    private final AcaoService acaoService;
+	@Autowired
+    private AcaoService acaoService;
 
     @Override
     @GetMapping

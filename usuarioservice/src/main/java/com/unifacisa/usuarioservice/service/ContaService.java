@@ -8,9 +8,6 @@ import com.unifacisa.usuarioservice.utils.CrudUtils;
 import com.unifacisa.usuarioservice.utils.exceptions.CustomServerErrorException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.ClientResponse;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +16,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ContaService implements CrudUtils<Conta, ContaDTO> {
 
-    private final WebClient webClient;
     private final ContaRepository contaRepository;
 
     @Override
@@ -54,10 +50,6 @@ public class ContaService implements CrudUtils<Conta, ContaDTO> {
     @Override
     public void deletar(Long id) {
         this.contaRepository.deleteById(id);
-    }
-
-    private Mono<? extends Throwable> handler5xxServerError(ClientResponse clientResponse) {
-        return Mono.error(new CustomServerErrorException("Erro do server"));
     }
 
 }

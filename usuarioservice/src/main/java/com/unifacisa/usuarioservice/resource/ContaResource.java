@@ -5,6 +5,8 @@ import com.unifacisa.usuarioservice.service.ContaService;
 import com.unifacisa.usuarioservice.service.dto.ContaDTO;
 import com.unifacisa.usuarioservice.utils.CrudResourceUtils;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +20,8 @@ import static com.unifacisa.usuarioservice.utils.ConstantsUtils.API_URL_PRODUTOS
 @RequestMapping(API_URL_PRODUTOS)
 public class ContaResource implements CrudResourceUtils<Conta, ContaDTO> {
 
-    private final ContaService contaService;
+	@Autowired
+    private ContaService contaService;
 
     @Override
     @GetMapping

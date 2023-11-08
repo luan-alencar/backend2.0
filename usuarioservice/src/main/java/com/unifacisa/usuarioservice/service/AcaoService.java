@@ -7,10 +7,9 @@ import com.unifacisa.usuarioservice.service.mapper.AcaoMapper;
 import com.unifacisa.usuarioservice.utils.CrudUtils;
 import com.unifacisa.usuarioservice.utils.exceptions.CustomServerErrorException;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.ClientResponse;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,8 +18,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AcaoService implements CrudUtils<Acao, AcaoDTO> {
 
-    private final WebClient webClient;
-    private final AcaoRepository acaoRepository;
+	@Autowired
+    private AcaoRepository acaoRepository;
 
     @Override
     public List<AcaoDTO> listar() {
@@ -54,10 +53,6 @@ public class AcaoService implements CrudUtils<Acao, AcaoDTO> {
     @Override
     public void deletar(Long id) {
         this.acaoRepository.deleteById(id);
-    }
-
-    private Mono<? extends Throwable> handler5xxServerError(ClientResponse clientResponse) {
-        return Mono.error(new CustomServerErrorException("Erro do server"));
     }
 
 }

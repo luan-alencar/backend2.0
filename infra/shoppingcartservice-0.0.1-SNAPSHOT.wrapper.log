@@ -33,3 +33,14 @@ System.Runtime.InteropServices.COMException (0x80040154): Classe não registrada
 2023-11-08 18:11:05,645 INFO  - Starting java  -jar shoppingcartservice-0.0.1-SNAPSHOT.jar
 2023-11-08 18:11:05,747 INFO  - Started process 9120
 2023-11-08 18:11:05,756 DEBUG - Forwarding logs of the process System.Diagnostics.Process (java) to winsw.RollingLogAppender
+2023-11-08 16:28:55,440 DEBUG - Starting WinSW in the CLI mode
+2023-11-08 16:28:55,609 FATAL - Unhandled exception
+System.PlatformNotSupportedException: The native library '?' does not have all required functions. Please, update the .NET Framework.SetSecurity_f
+  at System.Management.WmiNetUtilsHelper+<>c__DisplayClass87_0.<LoadPlatformNotSupportedDelegates>b__1 (System.Boolean& _, System.IntPtr& __) [0x00010] in <088c2dbfff9e4e058c7f2544d4e356cb>:0 
+  at System.Management.SecuredConnectHandler.ConnectNSecureIWbemServices (System.String path, System.Management.IWbemServices& pServices) [0x00032] in <088c2dbfff9e4e058c7f2544d4e356cb>:0 
+  at System.Management.ManagementScope.InitializeGuts (System.Object o) [0x000c5] in <088c2dbfff9e4e058c7f2544d4e356cb>:0 
+  at System.Management.ManagementScope.Initialize () [0x00050] in <088c2dbfff9e4e058c7f2544d4e356cb>:0 
+  at System.Management.ManagementScope.Connect () [0x00000] in <088c2dbfff9e4e058c7f2544d4e356cb>:0 
+  at WMI.WmiRoot..ctor () [0x00032] in <3d264aec13604651b5331bf058eccc2b>:0 
+  at winsw.WrapperService.Run (System.String[] _args, winsw.ServiceDescriptor descriptor) [0x00073] in <3d264aec13604651b5331bf058eccc2b>:0 
+  at winsw.WrapperService.Main (System.String[] args) [0x00000] in <3d264aec13604651b5331bf058eccc2b>:0 

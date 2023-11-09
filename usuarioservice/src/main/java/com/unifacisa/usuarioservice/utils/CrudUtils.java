@@ -10,7 +10,7 @@ public interface CrudUtils<E, D> {
 
     D buscar(Long id);
 
-    D editar(E e);
+//    D editar(E e);
 
     void deletar(Long id);
 }

@@ -5,8 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AcaoDTO {
+public class UsuarioDTO {
 
     private String nome;
-    private Double valor;
+    private String cpf;
+    private Long conta;
 }

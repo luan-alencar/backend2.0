@@ -38,16 +38,6 @@ public class ContaService implements CrudUtils<Conta, ContaDTO> {
     }
 
     @Override
-    public ContaDTO editar(Conta conta) {
-        if (contaRepository.existsById(conta.getId())) {
-            conta.setId(conta.getId());
-            return this.salvar(conta);
-        } else {
-            throw new CustomServerErrorException("Produto não encontrado para o ID: " + conta.getId());
-        }
-    }
-
-    @Override
     public void deletar(Long id) {
         this.contaRepository.deleteById(id);
     }

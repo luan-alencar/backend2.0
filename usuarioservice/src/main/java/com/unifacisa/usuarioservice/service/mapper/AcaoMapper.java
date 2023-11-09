@@ -3,6 +3,8 @@ package com.unifacisa.usuarioservice.service.mapper;
 import com.unifacisa.usuarioservice.domain.Acao;
 import com.unifacisa.usuarioservice.service.dto.AcaoDTO;
 import com.unifacisa.usuarioservice.utils.mapper.EntityMapperUtils;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -16,6 +18,8 @@ public interface AcaoMapper extends EntityMapperUtils<AcaoDTO, Acao> {
 
     @Override
     Acao toEntity(AcaoDTO dto);
+
+    Acao jsonArrayTODTO(JSONObject entity);
 
 }
 

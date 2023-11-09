@@ -9,7 +9,7 @@ Este guia demonstra como chamar os endpoints dos microserviços `shoppingservice
 ```bash
 git clone https://github.com/luan-alencar/backend2.0.git
 cd backend
-git checkout feature/luan
+git checkout feature/develop
 ```
 
 ### 1. Buildar o Projeto

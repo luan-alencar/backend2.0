@@ -15,9 +15,7 @@ public class Conta implements Serializable {
     private Long id;
 
     private Double saldo;
-
     private Double limite;
-
     private Integer total;
 
     @OneToOne

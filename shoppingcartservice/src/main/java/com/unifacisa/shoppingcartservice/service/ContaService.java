@@ -2,7 +2,6 @@ package com.unifacisa.shoppingcartservice.service;
 
 import com.unifacisa.shoppingcartservice.domain.Conta;
 import com.unifacisa.shoppingcartservice.service.exceptions.GlobalExceptionHandler;
-import com.unifacisa.shoppingcartservice.utils.CrudUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
@@ -13,11 +12,11 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-import static com.unifacisa.shoppingcartservice.utils.ConstantsUtils.*;
+import static com.unifacisa.shoppingcartservice.utils.ConstantsUtils.API_URL_CONTAS;
 
 @Service
 @RequiredArgsConstructor
-public class ContaService implements CrudUtils<Conta> {
+public class ContaService {
 
     private final WebClient webClient;
 
@@ -33,7 +32,6 @@ public class ContaService implements CrudUtils<Conta> {
         return todosContas;
     }
 
-    @Override
     public Conta salvar(Conta conta) {
         Mono<Conta> produtoMono = webClient.post()
                 .uri(API_URL_CONTAS)
@@ -46,39 +44,6 @@ public class ContaService implements CrudUtils<Conta> {
         return novoConta;
     }
 
-    @Override
-    public Conta buscar(Long id) {
-        Mono<Conta> produtoMono = webClient.get()
-                .uri(API_URL_CONTAS_ID, id)
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .bodyToMono(Conta.class)
-                .onErrorResume(this::handleError);
-        Conta contaEcontrado = produtoMono.block();
-        return contaEcontrado;
-    }
-
-    @Override
-    public Conta editar(Conta conta) {
-        Mono<Conta> produtoMono = webClient.put()
-                .uri(API_URL_CONTAS)
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve().
-                bodyToMono(Conta.class);
-//                .onErrorResume(this::handleError);
-        Conta novoConta = produtoMono.block();
-        return novoConta;
-    }
-
-    @Override
-    public void deletar(Long id) {
-        webClient.delete()
-                .uri(API_URL_CONTAS_ID, id)
-                .retrieve()
-                .bodyToMono(Void.class)
-                .block();
-//                .onErrorResume(this::handleErrorVoid);
-    }
 
     private Mono<? extends Conta> handleError(Throwable error) {
         return (error instanceof GlobalExceptionHandler)

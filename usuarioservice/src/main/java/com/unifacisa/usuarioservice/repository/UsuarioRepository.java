@@ -11,9 +11,6 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Query("SELECT u FROM Usuario u WHERE u.conta.saldo >= :saldo")
+    @Query("SELECT u FROM Usuario u INNER JOIN u.conta c WHERE c.saldo >= :saldo")
     Usuario findBySaldoMaiorOuIgualA(@Param("saldo") Double saldo);
-
-//    @Query("SELECT u FROM Usuario u WHERE u.conta.saldo >= :saldo")
-//    Usuario findBySaldoMaiorOuIgualA(@Param("saldo") Double saldo);
 }
